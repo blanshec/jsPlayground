@@ -1,8 +1,18 @@
+html {
+    font-family: Impact, Charcoal, sans-serif;
+}
+
 body {
     background-color: rgba(17, 34, 66, 0.76);
     margin: 0;
     padding: 0;
     height: 100vh;
+}
+
+h1 {
+    color: white;
+    letter-spacing: 4px;
+    font-size: 56px;
 }
 
 #vsratcat {
@@ -26,6 +36,11 @@ body {
     width: 90%;
     margin: 0 auto;
     height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -59,12 +74,8 @@ button:focus {
     outline: 0;
 }
 
-button:active {
-    background-color: hotpink;
-}
-
 button:hover {
-    background-color: lightpink;
+    background-color: cornflowerblue;
 }
 
 .taskButton {
