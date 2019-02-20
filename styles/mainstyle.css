@@ -1,0 +1,96 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background-color: lightyellow;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#vsratcat {
+    display: flex;
+    align-self: flex-end;
+    width: 50%;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex: 0;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.middleColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    align-items: center;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-self: flex-end;
+    flex: 1;
+}
+
+.jsLog {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 5%;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:active {
+    background-color: hotpink;
+}
+
+button:hover {
+    background-color: lightpink;
+}
+
+.taskButton {
+    background-color: pink;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 0 0 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.logButton {
+    background-color: pink;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    width: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
