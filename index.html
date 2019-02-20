@@ -5,6 +5,7 @@
     <title>JS Playground</title>
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="styles/mainstyle.css">
+    <script src="scripts/tasklist.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -13,16 +14,16 @@
     </div>
     <div class="container">
         <div class="leftColumn">
-            <button class="taskButton">Задание №1</button>
-            <button class="taskButton">Задание №2</button>
-            <button class="taskButton">Задание №3</button>
+            <button class="taskButton" onclick="fZad01();">Задание №1</button>
+            <button class="taskButton" onclick="fZad02();">Задание №2</button>
+            <button class="taskButton" onclick="fZad03();">Задание №3</button>
         </div>
         <div class="middleColumn">
-            <div class="jsLog"></div>
-            <button class="logButton">Clear Log</button>
+            <div id="jsLog"></div>
+            <button class="logButton" onclick="fClearLog();">Clear Log</button>
         </div>
         <div class="rightColumn">
-            <img id="vsratcat" src="images/vsratcat.png">
+            <img id="vsratcat" src="images/vsratcat.png" alt="vsratcat">
         </div>
     </div>
 </div>
