@@ -1,20 +1,24 @@
 "use strict";
 
 function getLogWindow() {
-    let logWindow = document.getElementById("jsLog");
-    return logWindow;
+    return document.getElementById("jsLog");
 }
 
 function clearLog() {
     getLogWindow().innerHTML = "";
 }
 
-function completeTask01() {
-    var surname = prompt("Enter your name", "0");
-    var gender = prompt("Enter your gender", "0");
-    var age = prompt("Enter your age", "0");
+function countAge(day, month, year) {
+    const oneDay = (1000 * 60 * 60 * 24);
+    return Math.round(Math.abs((new Date() - new Date(year, month - 1, day)))) / oneDay;
+}
 
-    var result = confirm("SURNAME: " + surname +
+function completeTask01() {
+    const surname = prompt("Enter your name", "0");
+    const gender = prompt("Enter your gender", "0");
+    const age = prompt("Enter your age", "0");
+
+    const result = confirm("SURNAME: " + surname +
         "\n" + "GENDER: " + gender +
         "\n" + "AGE: " + age +
         "\nRight?");
@@ -42,7 +46,7 @@ function completeTask02() {
         } else if (str === "-") {
             alert(x - y);
         } else if (str === "/") {
-            if (y == "0") alert("Cannot divide by ZERO ;)"); else alert(x / y);
+            if (y === "0") alert("Cannot divide by ZERO ;)"); else alert(x / y);
         }
     } else {
         alert("Wrong symbol");
@@ -51,6 +55,7 @@ function completeTask02() {
 
 function completeTask03() {
     const demo = getLogWindow();
+    clearLog();
 
     const rows = `<table>
 					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
@@ -65,7 +70,7 @@ function completeTask03() {
 					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
 				 </table>`;
     demo.insertAdjacentHTML('afterbegin',
-        "<link href='resources/css/task03/colored-table.css' rel='stylesheet'>");
+        "<link href='../css/task03/colored-table.css' rel='stylesheet'>");
     demo.insertAdjacentHTML('beforeend', rows);
 }
 
@@ -78,6 +83,16 @@ function completeTask04() {
     date = new Date();
 
     const demo = getLogWindow();
-    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + ", "
-        + date.getDate() + " of " + arrayMonths[date.getMonth()] + " " + date.getFullYear();
+    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " "
+        + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
+}
+
+function completeTask05() {
+    const dayOfBirth = prompt("Enter your day of birth", "0");
+    const monthOfBirth = prompt("Enter your month of birth", "0");
+    const yearOfBirth = prompt("Enter your year of birth", "0");
+
+    const demo = getLogWindow();
+
+    demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
 }
