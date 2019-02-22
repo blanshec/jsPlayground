@@ -17,16 +17,19 @@ h1 {
     letter-spacing: 4px;
     font-size: 6vw;
 }
-a{
+
+a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+
 a:hover {
     color: antiquewhite;
     cursor: pointer;
 }
+
 button {
     background-color: slategrey;
     color: white;

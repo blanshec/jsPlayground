@@ -1,16 +1,22 @@
-"use strict";
-
-function getLogWindow() {
-    return document.getElementById("jsLog");
+function getElement(elem) {
+    return document.getElementById(elem);
 }
 
 function clearLog() {
-    getLogWindow().innerHTML = "";
+    getElement("jsLog").innerHTML = "";
+}
+
+function precise(x) {
+    return Number.parseFloat(x).toPrecision(3);
 }
 
 function countAge(day, month, year) {
     const oneDay = (1000 * 60 * 60 * 24);
-    return Math.round(Math.abs((new Date() - new Date(year, month - 1, day)))) / oneDay;
+    return precise(Math.abs((new Date() - new Date(year, month - 1, day))) / oneDay);
+}
+
+function calculateDistance(x, y) {
+    return (precise(Math.sqrt((x * x) + (y * y))));
 }
 
 function completeTask01() {
@@ -54,7 +60,7 @@ function completeTask02() {
 }
 
 function completeTask03() {
-    const demo = getLogWindow();
+    const demo = getElement("jsLog");
     clearLog();
 
     const rows = `<table>
@@ -69,8 +75,8 @@ function completeTask03() {
 					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
 					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
 				 </table>`;
-    demo.insertAdjacentHTML('afterbegin',
-        "<link href='../css/task03/colored-table.css' rel='stylesheet'>");
+    demo.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
+        "type='text/css' href='resources/css/task03/colored-table.css'>");
     demo.insertAdjacentHTML('beforeend', rows);
 }
 
@@ -82,7 +88,7 @@ function completeTask04() {
     let date;
     date = new Date();
 
-    const demo = getLogWindow();
+    const demo = getElement("jsLog");
     demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " "
         + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
 }
@@ -92,7 +98,34 @@ function completeTask05() {
     const monthOfBirth = prompt("Enter your month of birth", "0");
     const yearOfBirth = prompt("Enter your year of birth", "0");
 
-    const demo = getLogWindow();
+    const demo = getElement("jsLog");
 
     demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
+}
+
+function completeTask06() {
+    const demo = getElement("jsLog");
+
+    demo.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
+        "type='text/css' href='resources/css/task06/input-forms.css'>");
+    demo.insertAdjacentHTML('beforeend', "<div id='task06container'>");
+
+    const tskCont = getElement("task06container");
+    const elemX = document.createElement("input");
+    const elemY = document.createElement("input");
+    const calculate = document.createElement("button");
+    let t = document.createTextNode("Calculate");
+    calculate.appendChild(t);
+
+    tskCont.insertAdjacentHTML('beforeend', "<p>Enter x:</p>");
+    tskCont.appendChild(elemX);
+    tskCont.insertAdjacentHTML('beforeend', "<p>Enter y:</p>");
+    tskCont.appendChild(elemY);
+
+    calculate.setAttribute("class", "btnCalc");
+    tskCont.appendChild(calculate);
+    calculate.addEventListener("click", function () {
+        t.nodeValue = calculateDistance(elemX.value, elemY.value);
+    });
+
 }
