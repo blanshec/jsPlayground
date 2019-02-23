@@ -1,0 +1,22 @@
+p {
+    margin: 0px;
+}
+input {
+    max-width: 10vw;
+    margin-bottom: 8px;
+
+}
+#task07container {
+    padding-top: 2vw;
+    display: inherit;
+}
+
+#rightCol {
+    display: inherit;
+    flex-direction: column;
+}
+
+#leftCol {
+    display: inherit;
+    flex-direction: column;
+}

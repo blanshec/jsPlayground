@@ -19,6 +19,11 @@ function calculateDistance(x, y) {
     return (precise(Math.sqrt((x * x) + (y * y))));
 }
 
+function insertStylesheet(target, styleName) {
+    target.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
+        "type='text/css' href='resources/css/" + styleName + "'>");
+}
+
 function completeTask01() {
     const surname = prompt("Enter your name", "0");
     const gender = prompt("Enter your gender", "0");
@@ -75,8 +80,7 @@ function completeTask03() {
 					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
 					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
 				 </table>`;
-    demo.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
-        "type='text/css' href='resources/css/task03/colored-table.css'>");
+    insertStylesheet(demo, "task03/colored-table.css");
     demo.insertAdjacentHTML('beforeend', rows);
 }
 
@@ -89,7 +93,7 @@ function completeTask04() {
     date = new Date();
 
     const demo = getElement("jsLog");
-    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " "
+    demo.innerHTML = "Today is " + arrayDays[date.getDay() - 1] + " "
         + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
 }
 
@@ -104,10 +108,10 @@ function completeTask05() {
 }
 
 function completeTask06() {
+    clearLog();
     const demo = getElement("jsLog");
 
-    demo.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
-        "type='text/css' href='resources/css/task06/input-forms.css'>");
+    insertStylesheet(demo, "task06/input-forms.css");
     demo.insertAdjacentHTML('beforeend', "<div id='task06container'>");
 
     const tskCont = getElement("task06container");
@@ -127,5 +131,38 @@ function completeTask06() {
     calculate.addEventListener("click", function () {
         t.nodeValue = calculateDistance(elemX.value, elemY.value);
     });
+
+}
+
+function completeTask07() {
+    clearLog();
+
+    const demo = getElement("jsLog");
+
+    insertStylesheet(demo, "/task07/input-forms.css");
+    demo.insertAdjacentHTML('beforeend', "<div id='task07container'>");
+
+    const tskCont = getElement("task07container");
+    tskCont.insertAdjacentHTML('beforeend', "<div id='leftCol'>");
+    const lCol = getElement("leftCol");
+    tskCont.insertAdjacentHTML('beforeend', "<div id='rightCol'>");
+    const rCol = getElement("rightCol");
+
+    const filler = [
+        "Surname", "Name", "Patronym", "Year of Birth",
+        "Place of Birth", "Favorite activity", "Least favorite activity"
+    ];
+    let inputFields = [];
+    inputFields.length = 6;
+
+    for (let i = 0; i < filler.length; i++) {
+        lCol.insertAdjacentHTML('beforeend', "<p>" + filler[i] + "</p>");
+    }
+
+    for (let i = 0; i < inputFields.length; i++) {
+        inputFields[i] = document.createElement("input");
+        rCol.appendChild(inputFields[i]);
+    }
+
 
 }
