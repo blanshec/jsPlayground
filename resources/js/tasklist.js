@@ -7,16 +7,16 @@ function clearLog() {
 }
 
 function precise(x) {
-    return Number.parseFloat(x).toPrecision(3);
+    return Number.parseFloat(x).toPrecision(1);
 }
 
 function countAge(day, month, year) {
-    const oneDay = (1000 * 60 * 60 * 24);
-    return precise(Math.abs((new Date() - new Date(year, month - 1, day))) / oneDay);
+    let oneDay = (1000 * 60 * 60 * 24);
+    return Math.round(Math.abs((new Date() - new Date(year, month - 1, day))) / oneDay);
 }
 
 function calculateDistance(x, y) {
-    return (precise(Math.sqrt((x * x) + (y * y))));
+    return (Math.round(Math.sqrt((x * x) + (y * y))));
 }
 
 function insertStylesheet(target, styleName) {
@@ -98,13 +98,14 @@ function completeTask04() {
 }
 
 function completeTask05() {
+    //разобраться с 1970 годом
     const dayOfBirth = prompt("Enter your day of birth", "0");
     const monthOfBirth = prompt("Enter your month of birth", "0");
     const yearOfBirth = prompt("Enter your year of birth", "0");
 
-    const demo = getElement("jsLog");
+        const demo = getElement("jsLog");
 
-    demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
+        demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
 }
 
 function completeTask06() {
@@ -143,10 +144,8 @@ function completeTask07() {
     demo.insertAdjacentHTML('beforeend', "<div id='task07container'>");
 
     const tskCont = getElement("task07container");
-    tskCont.insertAdjacentHTML('beforeend', "<div id='leftCol'>");
-    const lCol = getElement("leftCol");
-    tskCont.insertAdjacentHTML('beforeend', "<div id='rightCol'>");
-    const rCol = getElement("rightCol");
+
+    let button_generate = document.createElement("button");
 
     const filler = [
         "Surname", "Name", "Patronym", "Year of Birth",
@@ -156,13 +155,15 @@ function completeTask07() {
     inputFields.length = 6;
 
     for (let i = 0; i < filler.length; i++) {
-        lCol.insertAdjacentHTML('beforeend', "<p>" + filler[i] + "</p>");
-    }
-
-    for (let i = 0; i < inputFields.length; i++) {
+        tskCont.insertAdjacentHTML('beforeend', "<p>" + filler[i] + "</p>");
         inputFields[i] = document.createElement("input");
-        rCol.appendChild(inputFields[i]);
+        tskCont.appendChild(inputFields[i]);
     }
-
-
+    tskCont.appendChild(button_generate);
+    button_generate.addEventListener("click", function () {
+        var win = window.open();
+        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
+            + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
+            + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
+    });
 }

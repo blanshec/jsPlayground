@@ -9,14 +9,5 @@ input {
 #task07container {
     padding-top: 2vw;
     display: inherit;
-}
-
-#rightCol {
-    display: inherit;
-    flex-direction: column;
-}
-
-#leftCol {
-    display: inherit;
     flex-direction: column;
 }
