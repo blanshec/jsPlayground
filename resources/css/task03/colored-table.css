@@ -2,12 +2,15 @@ table	{
     border-collapse:collapse;
 }
 td		{
-    width: 47px;
-    height: 47px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #ffffff;}
 .r1		{
     background-color: #51faff;
 }
 .r2		{
     background-color:	#ff668c;
+}
+.r3 {
+    background-color: white;
 }

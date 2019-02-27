@@ -1,3 +1,6 @@
+let moment = require('moment');
+moment().format();
+
 function getElement(elem) {
     return document.getElementById(elem);
 }
@@ -6,9 +9,32 @@ function clearLog() {
     getElement("jsLog").innerHTML = "";
 }
 
+function isLeapYear(year) {
+    console.log('hi isLeapYear');
+    return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+}
+function countLeapYears(year) {
+    let l = 0;
+
+    for (let i = new Date().getFullYear(); i <= year; i++) {
+        if (isLeapYear(year)) {
+            l++;
+            console.log('hi countLeapYear');
+        }
+    }
+
+    console.log(l);
+    return l;
+}
 function countAge(day, month, year) {
     let oneDay = (1000 * 60 * 60 * 24);
-    return Math.round(Math.abs((new Date() - new Date(year, month - 1, day))) / oneDay);
+    const dayMilliseconds = 86400000;
+    let leapYears = countLeapYears(year);
+    if (isLeapYear(year)) {
+        return Math.round((new Date() - new Date(year, month - 1, day) + leapYears*dayMilliseconds) / oneDay);
+    }else {
+        return Math.round((new Date() - new Date(year, month - 1, day)) / oneDay);
+    }
 }
 
 function calculateDistance(x, y) {
@@ -18,6 +44,18 @@ function calculateDistance(x, y) {
 function insertStylesheet(target, styleName) {
     target.insertAdjacentHTML('afterbegin', "<link rel='stylesheet' " +
         "type='text/css' href='resources/css/" + styleName + "'>");
+}
+
+function colorInTable(holder, matrix, td) {
+    for (let i = 0; i < matrix.length; i++) {
+        if (matrix[i] === 0) {
+            td[i].setAttribute('class', 'r1');
+        } else if (matrix[i] === 1) {
+            td[i].setAttribute('class', 'r2');
+        }else{
+            td[i].setAttribute('class', 'r3');
+        }
+    }
 }
 
 function completeTask01() {
@@ -40,7 +78,7 @@ function completeTask01() {
 function completeTask02() {
     const num01 = prompt("Enter first number", "0");
     let x = parseInt(num01);
-    const num02 = prompt("Enter secont number", "0");
+    const num02 = prompt("Enter second number", "0");
     let y = parseInt(num02);
     const str = prompt("Enter operation symbol", "0");
     const opera = ['+', '-', '*', '/'];
@@ -64,7 +102,7 @@ function completeTask03() {
     let demo = getElement("jsLog");
     clearLog();
 
-    let matrix = [
+    let matrix_cross = [
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
@@ -76,32 +114,35 @@ function completeTask03() {
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0
     ];
+    let matrix_triangle = [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
+        0, 0, 0, 0, 0, 0, 0, 0, 2, 1,
+        0, 0, 0, 0, 0, 0, 0, 2, 1, 1,
+        0, 0, 0, 0, 0, 0, 2, 1, 1, 1,
+        0, 0, 0, 0, 0, 2, 1, 1, 1, 1,
+        0, 0, 0, 0, 2, 1, 1, 1, 1, 1,
+        0, 0, 0, 2, 1, 1, 1, 1, 1, 1,
+        0, 0, 2, 1, 1, 1, 1, 1, 1, 1,
+        0, 2, 1, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 1, 1, 1, 1, 1, 1, 1, 1
+    ];
     insertStylesheet(demo, "task03/colored-table.css");
     demo.insertAdjacentHTML('beforeend', "<table id='task03table'>");
     let tskTable = getElement("task03table");
 
-    for (let i = 0; i < matrix.length; i++) {
+    for (let i = 0; i < matrix_cross.length; i++) {
         let tr = document.createElement('tr');
         let td = document.createElement('td');
 
         if (i % 10 === 0) {
             tskTable.appendChild(tr);
         }
-        for (let j = 0; j < matrix.length / 10; j++) {
+        for (let j = 0; j < matrix_cross.length / 10; j++) {
             tr.appendChild(td.cloneNode(true));
         }
     }
-    colorInTable(matrix, document.getElementsByTagName('td'));
-}
 
-function colorInTable(matrix, td) {
-    for (let i = 0; i < matrix.length; i++) {
-        if (matrix[i] === 0) {
-            td[i].setAttribute('class', 'r1');
-        } else {
-            td[i].setAttribute('class', 'r2');
-        }
-    }
+    colorInTable(null, matrix_triangle, document.getElementsByTagName('td'));
 }
 
 function completeTask04() {
