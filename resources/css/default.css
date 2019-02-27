@@ -52,12 +52,6 @@ button:hover {
     background-color: #586a7b;
 }
 
-#vsratcat {
-    display: flex;
-    align-self: flex-end;
-    width: 50%;
-}
-
 #jsLog {
     display: flex;
     justify-content: center;

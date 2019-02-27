@@ -1,4 +1,13 @@
-table	{border-collapse:collapse}
-td		{width: 47px; height: 47px; border: 1px solid white;}
-.r1		{background-color:	#b366ff}
-.r2		{background-color:	#ff668c}
+table	{
+    border-collapse:collapse;
+}
+td		{
+    width: 47px;
+    height: 47px;
+    border: 1px solid #ffffff;}
+.r1		{
+    background-color: #51faff;
+}
+.r2		{
+    background-color:	#ff668c;
+}

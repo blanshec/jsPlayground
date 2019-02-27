@@ -6,10 +6,6 @@ function clearLog() {
     getElement("jsLog").innerHTML = "";
 }
 
-function precise(x) {
-    return Number.parseFloat(x).toPrecision(1);
-}
-
 function countAge(day, month, year) {
     let oneDay = (1000 * 60 * 60 * 24);
     return Math.round(Math.abs((new Date() - new Date(year, month - 1, day))) / oneDay);
@@ -65,23 +61,47 @@ function completeTask02() {
 }
 
 function completeTask03() {
-    const demo = getElement("jsLog");
+    let demo = getElement("jsLog");
     clearLog();
 
-    const rows = `<table>
-					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
-					<tr> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
-					<tr> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td></tr>
-					<tr> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td> <td class='r1'></td> <td class='r1'></td> <td class='r1'></td> <td class='r2'></td></tr>
-				 </table>`;
+    let matrix = [
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 1, 1, 0, 0, 0, 0
+    ];
     insertStylesheet(demo, "task03/colored-table.css");
-    demo.insertAdjacentHTML('beforeend', rows);
+    demo.insertAdjacentHTML('beforeend', "<table id='task03table'>");
+    let tskTable = getElement("task03table");
+
+    for (let i = 0; i < matrix.length; i++) {
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+
+        if (i % 10 === 0) {
+            tskTable.appendChild(tr);
+        }
+        for (let j = 0; j < matrix.length / 10; j++) {
+            tr.appendChild(td.cloneNode(true));
+        }
+    }
+    colorInTable(matrix, document.getElementsByTagName('td'));
+}
+
+function colorInTable(matrix, td) {
+    for (let i = 0; i < matrix.length; i++) {
+        if (matrix[i] === 0) {
+            td[i].setAttribute('class', 'r1');
+        } else {
+            td[i].setAttribute('class', 'r2');
+        }
+    }
 }
 
 function completeTask04() {
@@ -103,9 +123,9 @@ function completeTask05() {
     const monthOfBirth = prompt("Enter your month of birth", "0");
     const yearOfBirth = prompt("Enter your year of birth", "0");
 
-        const demo = getElement("jsLog");
+    const demo = getElement("jsLog");
 
-        demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
+    demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
 }
 
 function completeTask06() {
