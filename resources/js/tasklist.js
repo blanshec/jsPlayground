@@ -1,6 +1,3 @@
-let moment = require('moment');
-moment().format();
-
 function getElement(elem) {
     return document.getElementById(elem);
 }

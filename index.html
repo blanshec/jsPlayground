@@ -6,34 +6,32 @@
     <title>JS Playground</title>
     <link rel="icon" href="resources/images/icon.png">
     <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/reset.css">
     <script src="resources/js/tasklist.js"></script>
 </head>
 <body>
 <div class="wrapper">
     <div class="header">
-        <div class="navbar">
-            <a href="https://www.linkedin.com/in/alina-abdurshina/">LINKEDIN</a>
-            <a href="https://twitter.com/blanshec">TWITTER</a>
-            <a href="https://github.com/blanshec">GITHUB</a>
-        </div>
-        <h1>Welcome</h1>
+        <nav class="menu">
+            <a class="link menu__item" href="https://www.linkedin.com/in/alina-abdurshina/">LINKEDIN</a>
+            <a class="link menu__item" href="https://twitter.com/blanshec">TWITTER</a>
+            <a class="link menu__item" href="https://github.com/blanshec">GITHUB</a>
+        </nav>
+        <h1 class="header-title">Welcome</h1>
     </div>
     <div class="container">
-        <div class="leftColumn">
-            <button class="taskButton" onclick="completeTask01();">Задание №1</button>
-            <button class="taskButton" onclick="completeTask02();">Задание №2</button>
-            <button class="taskButton" onclick="completeTask03();">Задание №3</button>
-            <button class="taskButton" onclick="completeTask04();">Задание №4</button>
-            <button class="taskButton" onclick="completeTask05();">Задание №5</button>
-            <button class="taskButton" onclick="completeTask06();">Задание №6</button>
-            <button class="taskButton" onclick="completeTask07();">Задание №7</button>
+        <div class="module left-module">
+            <button class="button left_module__task-button" onclick="completeTask01();">Задание №1</button>
+            <button class="button left_module__task-button" onclick="completeTask02();">Задание №2</button>
+            <button class="button left_module__task-button" onclick="completeTask03();">Задание №3</button>
+            <button class="button left_module__task-button" onclick="completeTask04();">Задание №4</button>
+            <button class="button left_module__task-button" onclick="completeTask05();">Задание №5</button>
+            <button class="button left_module__task-button" onclick="completeTask06();">Задание №6</button>
+            <button class="button left_module__task-button" onclick="completeTask07();">Задание №7</button>
         </div>
-        <div class="middleColumn">
-            <div id="jsLog"></div>
-            <button class="logButton" onclick="clearLog();">Clear Log</button>
-        </div>
-        <div class="rightColumn">
-
+        <div class="module right-module">
+            <div class="log right-module__js_log"></div>
+            <button class="button right_module__clear-button" onclick="clearLog();">Clear Log</button>
         </div>
     </div>
 </div>
