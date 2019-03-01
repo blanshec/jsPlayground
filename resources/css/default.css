@@ -1,22 +1,36 @@
 
 .wrapper {
-    background-color: slategrey;
-    height: 100vh;
     font-family: Spectral;
     color: white;
+    height: 100vh;
+    background-image:
+            linear-gradient(
+                    rgba(255, 35, 189, 0.27),
+                    rgba(81, 250, 255, 0.11)),
+            url("../images/background.jpg");
 
+    display: grid;
+    grid-template-rows: 30vh auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "header "
+                         "containter";
 }
 
 .header {
-    background-color: #7a2736;
-    height: 30vh;
+    background-color: rgba(122, 39, 54, 0.69);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
     text-transform: uppercase;
+    grid-area: header;
 }
 
 .menu {
-    line-height: 30px;
+    line-height: 32px;
     background-color: rgba(0, 0, 0, 0.55);
+
+    display: grid;
+    grid-template-rows: 100fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .link {
@@ -31,25 +45,36 @@
 }
 
 .container {
+    align-content: center;
+
+    display: grid;
+    grid-template-columns: 10vw 320px 1fr 1fr 20vw;
+    grid-row-gap: 50px;
+    grid-template-areas: ". sidebar log notice .";
 }
 
 .module {
-    display: inline-grid;
-    vertical-align: top;
 }
 
-.left-module {
-
-}
-
-.right-module {
+.sidebar_module {
+    grid-area: sidebar;
 
 }
 
-.right-module__js_log {
-    background-color: white;
-    width: 500px;
-    height: 500px;
+.content-module {
+    grid-area: log;
+    justify-self: center;
+}
+
+.content-module__js-log {
+    background-color: #ebebeb;
+    width: 550px;
+    height: 550px;
+    border: 2px rgba(0, 0, 0, 0.70) solid;
+    box-sizing: border-box;
+
+    color: black;
+    font-size: 28px;
 }
 
 .button {
@@ -64,6 +89,9 @@
 }
 
 .button:hover {
-    box-sizing: border-box;
-    border: 1px solid #d03648;
+    background-color: crimson;
+}
+
+.content-module__clear-button {
+
 }

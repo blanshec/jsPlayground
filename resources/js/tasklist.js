@@ -1,15 +1,13 @@
-function getElement(elem) {
-    return document.getElementById(elem);
-}
 
 function clearLog() {
-    getElement("jsLog").innerHTML = "";
+    document.getElementsByClassName("jsLog").innerHTML = "";
 }
 
 function isLeapYear(year) {
     console.log('hi isLeapYear');
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
 }
+
 function countLeapYears(year) {
     let l = 0;
 
@@ -23,13 +21,14 @@ function countLeapYears(year) {
     console.log(l);
     return l;
 }
+
 function countAge(day, month, year) {
     let oneDay = (1000 * 60 * 60 * 24);
     const dayMilliseconds = 86400000;
     let leapYears = countLeapYears(year);
     if (isLeapYear(year)) {
-        return Math.round((new Date() - new Date(year, month - 1, day) + leapYears*dayMilliseconds) / oneDay);
-    }else {
+        return Math.round((new Date() - new Date(year, month - 1, day) + leapYears * dayMilliseconds) / oneDay);
+    } else {
         return Math.round((new Date() - new Date(year, month - 1, day)) / oneDay);
     }
 }
@@ -49,7 +48,7 @@ function colorInTable(holder, matrix, td) {
             td[i].setAttribute('class', 'r1');
         } else if (matrix[i] === 1) {
             td[i].setAttribute('class', 'r2');
-        }else{
+        } else {
             td[i].setAttribute('class', 'r3');
         }
     }
@@ -96,7 +95,7 @@ function completeTask02() {
 }
 
 function completeTask03() {
-    let demo = getElement("jsLog");
+    let demo = document.body.getElementsByClassName("content-module__js-log")[0];
     clearLog();
 
     let matrix_cross = [
@@ -123,9 +122,9 @@ function completeTask03() {
         0, 2, 1, 1, 1, 1, 1, 1, 1, 1,
         2, 1, 1, 1, 1, 1, 1, 1, 1, 1
     ];
-    insertStylesheet(demo, "task03/colored-table.css");
+    insertStylesheet(demo, 'task03/colored-table.css');
     demo.insertAdjacentHTML('beforeend', "<table id='task03table'>");
-    let tskTable = getElement("task03table");
+    let tskTable = document.getElementById("task03table");
 
     for (let i = 0; i < matrix_cross.length; i++) {
         let tr = document.createElement('tr');
@@ -150,7 +149,7 @@ function completeTask04() {
     let date;
     date = new Date();
 
-    const demo = getElement("jsLog");
+    let demo = document.getElementsByClassName("content-module__js-log")[0];
     demo.innerHTML = "Today is " + arrayDays[date.getDay() - 1] + " "
         + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
 }
@@ -168,12 +167,12 @@ function completeTask05() {
 
 function completeTask06() {
     clearLog();
-    const demo = getElement("jsLog");
+    const demo = document.getElementsByClassName("content-module__js-log")[0];
 
     insertStylesheet(demo, "task06/input-forms.css");
-    demo.insertAdjacentHTML('beforeend', "<div id='task06container'>");
+    demo.insertAdjacentHTML('beforeend', "<div class='task06container'>");
 
-    const tskCont = getElement("task06container");
+    const tskCont = document.getElementsByClassName("task06container")[0];
     const elemX = document.createElement("input");
     const elemY = document.createElement("input");
     const calculate = document.createElement("button");
@@ -196,12 +195,12 @@ function completeTask06() {
 function completeTask07() {
     clearLog();
 
-    const demo = getElement("jsLog");
+    let demo = document.getElementsByClassName("content-module__js-log")[0];
 
     insertStylesheet(demo, "/task07/input-forms.css");
-    demo.insertAdjacentHTML('beforeend', "<div id='task07container'>");
+    demo.insertAdjacentHTML('beforeend', "<div class='task07container'>");
 
-    const tskCont = getElement("task07container");
+    const tskCont = document.getElementsByClassName("task07container")[0];
 
     let button_generate = document.createElement("button");
 
