@@ -1,0 +1,13 @@
+.task-form {
+    background-color: greenyellow;
+    display: grid;
+
+}
+.task-form h2 {
+    line-height: 20px;
+    text-align: center;
+}
+.task-form h3, p{
+    line-height: 25px;
+    font-size: 18px;
+}

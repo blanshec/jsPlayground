@@ -142,8 +142,8 @@ function completeTask03() {
         2, 1, 1, 1, 1, 1, 1, 1, 1, 1
     ];
     insertStylesheet(demo, 'task03/colored-table.css');
-    demo.insertAdjacentHTML('beforeend', "<table id='task03table'>");
-    let tskTable = document.getElementById("task03table");
+    demo.insertAdjacentHTML('beforeend', "<table id='task-container'>");
+    let tskTable = document.getElementsByClassName("task-container")[0];
 
     for (let i = 0; i < matrix_cross.length; i++) {
         let tr = document.createElement('tr');
@@ -188,13 +188,14 @@ function completeTask06() {
     const demo = document.getElementsByClassName("content-module__js-log")[0];
 
     insertStylesheet(demo, "task06/input-forms.css");
-    demo.insertAdjacentHTML('beforeend', "<div class='task06container'>");
+    demo.insertAdjacentHTML('beforeend', "<div class='task-container'>");
 
-    const tskCont = document.getElementsByClassName("task06container")[0];
+    const tskCont = document.getElementsByClassName("task-container")[0];
+
     const elemX = document.createElement("input");
     const elemY = document.createElement("input");
     const calculate = document.createElement("button");
-    let t = document.createTextNode("Calculate");
+    const t = document.createTextNode("Calculate");
     calculate.appendChild(t);
 
     tskCont.insertAdjacentHTML('beforeend', "<p>Enter x:</p>");
@@ -213,30 +214,114 @@ function completeTask06() {
 function completeTask07() {
     clearLog();
 
-    let demo = document.getElementsByClassName("content-module__js-log")[0];
+    const demo = document.getElementsByClassName("content-module__js-log")[0];
 
     insertStylesheet(demo, "/task07/input-forms.css");
-    demo.insertAdjacentHTML('beforeend', "<div class='task07container'>");
+    demo.insertAdjacentHTML('beforeend', "<div class='task-container'>");
 
-    const tskCont = document.getElementsByClassName("task07container")[0];
+    const tskCont = document.getElementsByClassName("task-container")[0];
 
-    let button_generate = document.createElement("button");
+    const button_generate = document.createElement("button");
+    button_generate.textContent = "Generate";
 
     const filler = [
         "Surname", "Name", "Patronym", "Year of Birth",
         "Place of Birth", "Favorite activity", "Least favorite activity"
     ];
-    let inputFields = [];
-    inputFields.length = 6;
+
+    const inputFields = [];
 
     for (let i = 0; i < filler.length; i++) {
         tskCont.insertAdjacentHTML('beforeend', "<p>" + filler[i] + "</p>");
         inputFields[i] = document.createElement("input");
         tskCont.appendChild(inputFields[i]);
     }
+
     tskCont.appendChild(button_generate);
     button_generate.addEventListener("click", function () {
-        var win = window.open();
+        const win = window.open();
+        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
+            + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
+            + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
+    });
+}
+
+function completeTask08() {
+    clearLog();
+
+    let demo = document.getElementsByClassName("content-module__js-log")[0];
+    insertStylesheet(demo, "/task08/input-forms.css");
+    demo.insertAdjacentHTML('beforeend', "<form class='task-form'>");
+    const tskForm = document.getElementsByClassName('task-form')[0];
+
+    tskForm.insertAdjacentHTML("beforeend", "<h2 id='pageHead'> Page on demand! </h2>");
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='pageName'> Page name: </h3>");
+    const pageName = document.createElement("input")
+    pageName.setAttribute('class', 'page-name');
+    tskForm.appendChild(pageName);
+
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='imageName'>Check desired images</h3>");
+    const picNames = [
+        "Dog", "Flower", "Snake-Horse"
+    ];
+    const checkBox = [];
+    for (let i = 0; i < picNames.length; i++) {
+        tskForm.insertAdjacentHTML("beforeend", "<p class='pic-name'>" + picNames[i] + "</p>")
+        checkBox[i] = document.createElement("input");
+        checkBox[i].type = "checkbox";
+        checkBox[i].className = "checkboxPic";
+        tskForm.appendChild(checkBox[i]);
+    }
+
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='pageText'> Page text: </h3>");
+    const pageText = document.createElement("input")
+    pageName.setAttribute('class', 'page-text');
+    tskForm.appendChild(pageText);
+
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='bgColorHeader'> Background Color: </h3>");
+    const selectList = document.createElement("select");
+    selectList.id = "bgColor";
+    tskForm.appendChild(selectList);
+
+    const colorSelection = [
+        "blue", "white", "black"
+    ];
+
+    for (let i = 0; i < colorSelection.length; i++) {
+        let option = document.createElement("option");
+        option.value = colorSelection[i];
+        option.text = colorSelection[i];
+        selectList.appendChild(option);
+    }
+
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='textColor'> Text Color: </h3>");
+
+
+    for (let i = 0; i < colorSelection.length; i++) {
+        let option = document.createElement("input");
+        option.type = "radio";
+        option.id = colorSelection[i];
+        option.value = colorSelection[i];
+        tskForm.appendChild(option);
+        tskForm.insertAdjacentHTML("beforeend", "<div class='color-choice' style='background-color: "
+            + colorSelection[i] + ";width:50px;height:20px;" + "'></div>");
+    }
+
+    const buttonGenerate = document.createElement("button");
+    buttonGenerate.id = "generate";
+    buttonGenerate.textContent = "Generate";
+    tskForm.appendChild(buttonGenerate);
+    buttonGenerate.addEventListener("click", function () {
+        const win = window.open();
+        win.document.write();
+    });
+
+    const buttonReset = document.createElement("button");
+    buttonGenerate.id = "reset";
+    buttonReset.textContent = "Reset";
+    tskForm.appendChild(buttonReset);
+    buttonReset.addEventListener("click", function () {
+        const win = window.open();
         win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
             + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
             + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);

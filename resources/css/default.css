@@ -48,15 +48,16 @@
     align-content: center;
 
     display: grid;
-    grid-template-columns: 10vw 320px 1fr 1fr 20vw;
+    grid-template-columns: 5vw 320px 2fr 1fr 5vw;
     grid-row-gap: 50px;
+    grid-column-gap: 30px;
     grid-template-areas: ". sidebar log notice .";
 }
 
 .module {
 }
 
-.sidebar_module {
+.sidebar-module {
     grid-area: sidebar;
 
 }
@@ -75,6 +76,10 @@
 
     color: black;
     font-size: 28px;
+}
+
+.note_module {
+    grid-area: notice;
 }
 
 .button {
