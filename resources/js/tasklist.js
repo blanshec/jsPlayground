@@ -1,21 +1,40 @@
-
 function clearLog() {
-    document.getElementsByClassName("jsLog").innerHTML = "";
+    document.getElementsByClassName("content-module__js-log")[0].innerHTML = "";
 }
 
 function isLeapYear(year) {
-    console.log('hi isLeapYear');
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0));
+}
+
+function countLYforwards(year) {
+    console.log('future!');
+    let l = 0;
+    for (let i = new Date().getFullYear(); i <= year; i++) {
+        if (isLeapYear(i)) {
+            l++;
+        }
+    }
+    return l;
+}
+
+function countLYbackwards(year) {
+    console.log('past!');
+    let l = 0;
+    for (let i = new Date().getFullYear(); i >= year; i--) {
+        if (isLeapYear(i)) {
+            l++;
+        }
+    }
+    return l;
 }
 
 function countLeapYears(year) {
     let l = 0;
 
-    for (let i = new Date().getFullYear(); i <= year; i++) {
-        if (isLeapYear(year)) {
-            l++;
-            console.log('hi countLeapYear');
-        }
+    if (year > new Date().getFullYear()) {
+        l = countLYforwards(year);
+    } else {
+        l = countLYbackwards(year);
     }
 
     console.log(l);
@@ -23,13 +42,13 @@ function countLeapYears(year) {
 }
 
 function countAge(day, month, year) {
-    let oneDay = (1000 * 60 * 60 * 24);
-    const dayMilliseconds = 86400000;
-    let leapYears = countLeapYears(year);
-    if (isLeapYear(year)) {
-        return Math.round((new Date() - new Date(year, month - 1, day) + leapYears * dayMilliseconds) / oneDay);
+    const oneDay = (1000 * 60 * 60 * 24);
+    const leapYears = countLeapYears(year);
+
+    if (year > new Date().getFullYear()) {
+        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day)) + leapYears * oneDay) / oneDay);
     } else {
-        return Math.round((new Date() - new Date(year, month - 1, day)) / oneDay);
+        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))) / oneDay);
     }
 }
 
@@ -142,7 +161,7 @@ function completeTask03() {
 }
 
 function completeTask04() {
-    const arrayDays = ["Sunday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const arrayDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const arrayMonths = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
 
@@ -150,17 +169,16 @@ function completeTask04() {
     date = new Date();
 
     let demo = document.getElementsByClassName("content-module__js-log")[0];
-    demo.innerHTML = "Today is " + arrayDays[date.getDay() - 1] + " "
+    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " "
         + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
 }
 
 function completeTask05() {
-    //разобраться с 1970 годом
     const dayOfBirth = prompt("Enter your day of birth", "0");
     const monthOfBirth = prompt("Enter your month of birth", "0");
     const yearOfBirth = prompt("Enter your year of birth", "0");
 
-    const demo = getElement("jsLog");
+    const demo = document.body.getElementsByClassName("content-module__js-log")[0];
 
     demo.innerHTML = "Im alive for " + countAge(dayOfBirth, monthOfBirth, yearOfBirth) + " days";
 }
