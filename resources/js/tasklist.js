@@ -46,14 +46,15 @@ function countAge(day, month, year) {
     const leapYears = countLeapYears(year);
 
     if (year > new Date().getFullYear()) {
-        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day)) + leapYears * oneDay) / oneDay);
+        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))
+            + leapYears * oneDay) / oneDay);
     } else {
         return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))) / oneDay);
     }
 }
 
 function calculateDistance(x, y) {
-    return (Math.round(Math.sqrt((x * x) + (y * y))));
+    return (Math.sqrt((x * x) + (y * y)));
 }
 
 function insertStylesheet(target, styleName) {
@@ -114,10 +115,10 @@ function completeTask02() {
 }
 
 function completeTask03() {
-    let demo = document.body.getElementsByClassName("content-module__js-log")[0];
+    const demo = document.body.getElementsByClassName("content-module__js-log")[0];
     clearLog();
 
-    let matrix_cross = [
+    const matrix_cross = [
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
@@ -129,7 +130,7 @@ function completeTask03() {
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0,
         0, 0, 0, 0, 1, 1, 0, 0, 0, 0
     ];
-    let matrix_triangle = [
+    const matrix_triangle = [
         0, 0, 0, 0, 0, 0, 0, 0, 0, 2,
         0, 0, 0, 0, 0, 0, 0, 0, 2, 1,
         0, 0, 0, 0, 0, 0, 0, 2, 1, 1,
@@ -142,12 +143,12 @@ function completeTask03() {
         2, 1, 1, 1, 1, 1, 1, 1, 1, 1
     ];
     insertStylesheet(demo, 'task03/colored-table.css');
-    demo.insertAdjacentHTML('beforeend', "<table id='task-container'>");
-    let tskTable = document.getElementsByClassName("task-container")[0];
+    demo.insertAdjacentHTML('beforeend', "<table class='task-container'>");
+    const tskTable = document.getElementsByClassName("task-container")[0];
 
     for (let i = 0; i < matrix_cross.length; i++) {
-        let tr = document.createElement('tr');
-        let td = document.createElement('td');
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
 
         if (i % 10 === 0) {
             tskTable.appendChild(tr);
@@ -249,17 +250,20 @@ function completeTask07() {
 function completeTask08() {
     clearLog();
 
+    //FORM
     let demo = document.getElementsByClassName("content-module__js-log")[0];
     insertStylesheet(demo, "/task08/input-forms.css");
     demo.insertAdjacentHTML('beforeend', "<form class='task-form'>");
     const tskForm = document.getElementsByClassName('task-form')[0];
 
+    //PAGE NAME
     tskForm.insertAdjacentHTML("beforeend", "<h2 id='pageHead'> Page on demand! </h2>");
     tskForm.insertAdjacentHTML("beforeend", "<h3 id='pageName'> Page name: </h3>");
-    const pageName = document.createElement("input")
+    const pageName = document.createElement("input");
     pageName.setAttribute('class', 'page-name');
     tskForm.appendChild(pageName);
 
+    //IMAGE
     tskForm.insertAdjacentHTML("beforeend", "<h3 id='imageName'>Check desired images</h3>");
     const picNames = [
         "Dog", "Flower", "Snake-Horse"
@@ -273,20 +277,22 @@ function completeTask08() {
         tskForm.appendChild(checkBox[i]);
     }
 
+    //PAGE TXT
     tskForm.insertAdjacentHTML("beforeend", "<h3 id='pageText'> Page text: </h3>");
     const pageText = document.createElement("input")
     pageName.setAttribute('class', 'page-text');
     tskForm.appendChild(pageText);
 
-    tskForm.insertAdjacentHTML("beforeend", "<h3 id='bgColorHeader'> Background Color: </h3>");
-    const selectList = document.createElement("select");
-    selectList.id = "bgColor";
-    tskForm.appendChild(selectList);
-
+    //COLORS
     const colorSelection = [
         "blue", "white", "black"
     ];
 
+    //BG COLOR
+    tskForm.insertAdjacentHTML("beforeend", "<h3 id='bgColorHeader'> Background Color: </h3>");
+    const selectList = document.createElement("select");
+    selectList.id = "bgColor";
+    tskForm.appendChild(selectList);
     for (let i = 0; i < colorSelection.length; i++) {
         let option = document.createElement("option");
         option.value = colorSelection[i];
@@ -294,9 +300,8 @@ function completeTask08() {
         selectList.appendChild(option);
     }
 
+    //TXT COLOR
     tskForm.insertAdjacentHTML("beforeend", "<h3 id='textColor'> Text Color: </h3>");
-
-
     for (let i = 0; i < colorSelection.length; i++) {
         let option = document.createElement("input");
         option.type = "radio";
@@ -307,19 +312,17 @@ function completeTask08() {
             + colorSelection[i] + ";width:50px;height:20px;" + "'></div>");
     }
 
-    const buttonGenerate = document.createElement("button");
-    buttonGenerate.id = "generate";
-    buttonGenerate.textContent = "Generate";
-    tskForm.appendChild(buttonGenerate);
+    //generate button
+    const buttonGenerate = addButton(tskForm, "Generate");
     buttonGenerate.addEventListener("click", function () {
         const win = window.open();
-        win.document.write();
+        win.document.write(
+            "<h1>" + pageName.value + "</h1>"
+        );
     });
 
-    const buttonReset = document.createElement("button");
-    buttonGenerate.id = "reset";
-    buttonReset.textContent = "Reset";
-    tskForm.appendChild(buttonReset);
+    //reset button
+    const buttonReset = addButton(tskForm, "Reset");
     buttonReset.addEventListener("click", function () {
         const win = window.open();
         win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
@@ -327,3 +330,13 @@ function completeTask08() {
             + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
     });
 }
+
+function addButton(target, name) {
+    const btn = document.createElement("button");
+    btn.id = name;
+    btn.textContent = name;
+    target.appendChild(btn);
+    return btn;
+}
+
+alert(moment().format());

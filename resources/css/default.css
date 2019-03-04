@@ -8,12 +8,14 @@
                     rgba(255, 35, 189, 0.27),
                     rgba(81, 250, 255, 0.11)),
             url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 
     display: grid;
     grid-template-rows: 30vh auto;
-    grid-template-columns: 100%;
-    grid-template-areas: "header "
-                         "containter";
+    grid-template-columns: 10vw 1fr 10vw;
+    grid-template-areas: "header header header"
+                         "containter container container";
 }
 
 .header {
@@ -69,8 +71,8 @@
 
 .content-module__js-log {
     background-color: #ebebeb;
-    width: 550px;
-    height: 550px;
+    width: 500px;
+    height: 500px;
     border: 2px rgba(0, 0, 0, 0.70) solid;
     box-sizing: border-box;
 
