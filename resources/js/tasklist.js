@@ -37,13 +37,33 @@ function countLeapYears(year) {
         l = countLYbackwards(year);
     }
 
-    console.log(l);
     return l;
+}
+
+function parseYear(year) {
+    console.log('parsing ' + year);
+    if (year.toString().length < 2) {
+        console.log('!!!' + year);
+        return '000' + year;
+    } else if (year.toString().length < 3) {
+        console.log('!!' + year);
+        return "00" + year;
+    } else if (year.toString().length < 4) {
+        console.log('!' + year);
+        return "0" + year;
+    }
+    return year.toString();
 }
 
 function countAge(day, month, year) {
     const oneDay = (1000 * 60 * 60 * 24);
     const leapYears = countLeapYears(year);
+
+    console.log(year.length);
+
+    year = parseYear(year);
+
+    console.log(year);
 
     if (year > new Date().getFullYear()) {
         return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))
@@ -338,5 +358,3 @@ function addButton(target, name) {
     target.appendChild(btn);
     return btn;
 }
-
-alert(moment().format());
