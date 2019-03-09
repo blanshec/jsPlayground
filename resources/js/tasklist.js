@@ -1,3 +1,5 @@
+console.log((new Date() - new Date("0001-01-01")) / (1000 * 60 * 60 * 24));
+
 function clearLog() {
     document.getElementsByClassName("content-module__js-log")[0].innerHTML = "";
 }
@@ -41,35 +43,54 @@ function countLeapYears(year) {
 }
 
 function parseYear(year) {
-    console.log('parsing ' + year);
     if (year.toString().length < 2) {
-        console.log('!!!' + year);
-        return '000' + year;
+        return "000" + year;
     } else if (year.toString().length < 3) {
-        console.log('!!' + year);
         return "00" + year;
     } else if (year.toString().length < 4) {
-        console.log('!' + year);
         return "0" + year;
     }
-    return year.toString();
+    else {
+        year.toString();
+    }
+}
+
+function parseMonth(month) {
+    if (month.toString().length < 2) {
+        return "0" + month;
+    }
+    else {
+        month.toString();
+    }
+}
+
+function parseDay(day) {
+    if (day.toString().length < 2) {
+        return "0" + day;
+    }
+    else {
+        day.toString();
+    }
 }
 
 function countAge(day, month, year) {
     const oneDay = (1000 * 60 * 60 * 24);
     const leapYears = countLeapYears(year);
 
-    console.log(year.length);
-
     year = parseYear(year);
+    month = parseMonth(month);
+    day = parseDay(day);
 
-    console.log(year);
+    console.log(year, month, day);
+    console.log(new Date() - new Date(year, month, day));
+    console.log((new Date() - new Date("'" + year + "-" + (month - 1) + "-" + day + "'")) / oneDay);
 
     if (year > new Date().getFullYear()) {
-        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))
-            + leapYears * oneDay) / oneDay);
+        return Math.trunc((Math.abs(new Date() - new Date("'" + year
+            + "-" + (month - 1) + "-" + day + "'")) + leapYears * oneDay) / oneDay);
     } else {
-        return Math.trunc((Math.abs(new Date() - new Date(year, month - 1, day))) / oneDay);
+        return Math.trunc((Math.abs(new Date() - new Date("'"
+            + year + "-" + (month - 1) + "-" + day + "'"))) / oneDay);
     }
 }
 
@@ -103,6 +124,7 @@ function completeTask01() {
         "\n" + "GENDER: " + gender +
         "\n" + "AGE: " + age +
         "\nRight?");
+
 
     if (!result) {
         alert("Something went wrong...");
