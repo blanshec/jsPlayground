@@ -1,5 +1,3 @@
-console.log((new Date() - new Date("0001-01-01")) / (1000 * 60 * 60 * 24));
-
 function clearLog() {
     document.getElementsByClassName("content-module__js-log")[0].innerHTML = "";
 }
@@ -49,48 +47,46 @@ function parseYear(year) {
         return "00" + year;
     } else if (year.toString().length < 4) {
         return "0" + year;
-    }
-    else {
-        year.toString();
+    } else if (year.toString().length === 4) {
+        return year.toString();
     }
 }
 
 function parseMonth(month) {
     if (month.toString().length < 2) {
         return "0" + month;
-    }
-    else {
-        month.toString();
+    } else {
+        return month.toString();
     }
 }
 
 function parseDay(day) {
     if (day.toString().length < 2) {
         return "0" + day;
-    }
-    else {
-        day.toString();
+    } else {
+        return day.toString();
     }
 }
 
 function countAge(day, month, year) {
     const oneDay = (1000 * 60 * 60 * 24);
     const leapYears = countLeapYears(year);
+    console.log("MONTH: " + new Date(month).getMonth());
+    console.log("LEAP YEARS: " + leapYears);
 
     year = parseYear(year);
     month = parseMonth(month);
     day = parseDay(day);
 
-    console.log(year, month, day);
-    console.log(new Date() - new Date(year, month, day));
-    console.log((new Date() - new Date("'" + year + "-" + (month - 1) + "-" + day + "'")) / oneDay);
+    console.log("PARSED DATE: " + year + "-" + month + "-" + day);
+    console.log("COMPUTE: " + (Date.now() - new Date(year + "-" + month + "-" + day)) / oneDay);
 
     if (year > new Date().getFullYear()) {
-        return Math.trunc((Math.abs(new Date() - new Date("'" + year
-            + "-" + (month - 1) + "-" + day + "'")) + leapYears * oneDay) / oneDay);
+        console.log("PARSED FUTURE");
+        return Math.trunc((Math.abs(Date.now() - new Date(year + "-" + month + "-" + day)) + leapYears * oneDay) / oneDay);
     } else {
-        return Math.trunc((Math.abs(new Date() - new Date("'"
-            + year + "-" + (month - 1) + "-" + day + "'"))) / oneDay);
+        console.log("PARSED PAST");
+        return Math.trunc(((Date.now() - new Date(year + "-" + month + "-" + day)) / oneDay));
     }
 }
 
@@ -357,10 +353,7 @@ function completeTask08() {
     //generate button
     const buttonGenerate = addButton(tskForm, "Generate");
     buttonGenerate.addEventListener("click", function () {
-        const win = window.open();
-        win.document.write(
-            "<h1>" + pageName.value + "</h1>"
-        );
+        generatePage(selectList[1].value);
     });
 
     //reset button
@@ -371,6 +364,11 @@ function completeTask08() {
             + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
             + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
     });
+}
+
+function generatePage(bgColor) {
+    const win = window.open();
+    win.document.body.style.backgroundColor = bgColor;
 }
 
 function addButton(target, name) {
