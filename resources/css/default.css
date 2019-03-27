@@ -1,13 +1,11 @@
-
 .wrapper {
     font-family: Spectral;
     color: white;
     height: 100vh;
     background-image:
-            linear-gradient(
-                    rgba(255, 35, 189, 0.27),
-                    rgba(81, 250, 255, 0.11)),
-            url("../images/background.jpg");
+        linear-gradient(rgba(255, 35, 189, 0.27),
+        rgba(81, 250, 255, 0.11)),
+        url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -15,7 +13,7 @@
     grid-template-rows: 30vh auto;
     grid-template-columns: 10vw 1fr 10vw;
     grid-template-areas: "header header header"
-                         "containter container container";
+        "containter container container";
 }
 
 .header {
@@ -56,8 +54,7 @@
     grid-template-areas: ". sidebar log notice .";
 }
 
-.module {
-}
+.module {}
 
 .sidebar-module {
     grid-area: sidebar;
@@ -99,6 +96,4 @@
     background-color: crimson;
 }
 
-.content-module__clear-button {
-
-}
+.content-module__clear-button {}

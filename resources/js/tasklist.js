@@ -145,7 +145,8 @@ function completeTask02() {
         } else if (str === "-") {
             alert(x - y);
         } else if (str === "/") {
-            if (y === "0") alert("Cannot divide by ZERO ;)"); else alert(x / y);
+            if (y === "0") alert("Cannot divide by ZERO ;)");
+            else alert(x / y);
         }
     } else {
         alert("Wrong symbol");
@@ -202,14 +203,15 @@ function completeTask03() {
 function completeTask04() {
     const arrayDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const arrayMonths = ["January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"];
+        "July", "August", "September", "October", "November", "December"
+    ];
 
     let date;
     date = new Date();
 
     let demo = document.getElementsByClassName("content-module__js-log")[0];
-    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " "
-        + date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
+    demo.innerHTML = "Today is " + arrayDays[date.getDay()] + " " +
+        date.getDate() + " of " + arrayMonths[date.getMonth()] + ", " + date.getFullYear();
 }
 
 function completeTask05() {
@@ -279,9 +281,9 @@ function completeTask07() {
     tskCont.appendChild(button_generate);
     button_generate.addEventListener("click", function () {
         const win = window.open();
-        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
-            + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
-            + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
+        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value +
+            ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is " +
+            inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
     });
 }
 
@@ -346,8 +348,8 @@ function completeTask08() {
         option.id = colorSelection[i];
         option.value = colorSelection[i];
         tskForm.appendChild(option);
-        tskForm.insertAdjacentHTML("beforeend", "<div class='color-choice' style='background-color: "
-            + colorSelection[i] + ";width:50px;height:20px;" + "'></div>");
+        tskForm.insertAdjacentHTML("beforeend", "<div class='color-choice' style='background-color: " +
+            colorSelection[i] + ";width:50px;height:20px;" + "'></div>");
     }
 
     //generate button
@@ -360,9 +362,9 @@ function completeTask08() {
     const buttonReset = addButton(tskForm, "Reset");
     buttonReset.addEventListener("click", function () {
         const win = window.open();
-        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value
-            + ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is "
-            + inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
+        win.document.write("My name is " + inputFields[0].value + " " + inputFields[1].value + " " + inputFields[2].value +
+            ". I was born in " + inputFields[3].value + ", " + inputFields[4].value + ". My favorite thing to do is " +
+            inputFields[5].value + ". My least favorite thing to do is " + inputFields[6].value);
     });
 }
 
