@@ -79,14 +79,14 @@ function countAge(day, month, year) {
     day = parseDay(day);
 
     console.log("PARSED DATE: " + year + "-" + month + "-" + day);
-    console.log("COMPUTE: " + (Date.now() - new Date(year + "-" + month + "-" + day)) / oneDay);
+    console.log("COMPUTE: " + ((Date.now() - new Date(year + "-" + month + "-" + day))+ 2*oneDay) / oneDay );
 
     if (year > new Date().getFullYear()) {
         console.log("PARSED FUTURE");
         return Math.trunc((Math.abs(Date.now() - new Date(year + "-" + month + "-" + day)) + leapYears * oneDay) / oneDay);
     } else {
         console.log("PARSED PAST");
-        return Math.trunc(((Date.now() - new Date(year + "-" + month + "-" + day)) / oneDay));
+        return Math.trunc((((Date.now() - new Date(year + "-" + month + "-" + day))+ 2*oneDay) / oneDay));
     }
 }
 
