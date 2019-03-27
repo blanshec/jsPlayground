@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26ed55e3-d76a-4752-a8c6-f560c28f4282" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pageGen.html" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pageGen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pageGen.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="jsPlayground" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jsPlayground" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26ed55e3-d76a-4752-a8c6-f560c28f4282" name="Default Changelist" comment="" />
+      <created>1553511422665</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1553511422665</updated>
+      <workItem from="1553511423902" duration="63000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="63000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="841" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/resources/js/tasklist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="224" column="26" selection-start-line="224" selection-start-column="26" selection-end-line="224" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#clearLog#0" />
+            <element signature="n#!!block;n#isLeapYear#0" />
+            <element signature="n#!!block;n#countLYforwards#0" />
+            <element signature="e#349#412#0" />
+            <element signature="e#378#406#0" />
+            <element signature="n#!!block;n#countLYbackwards#0" />
+            <element signature="e#564#627#0" />
+            <element signature="e#593#621#0" />
+            <element signature="n#!!block;n#countLeapYears#0" />
+            <element signature="e#734#776#0" />
+            <element signature="e#782#825#0" />
+            <element signature="n#!!block;n#parseYear#0" />
+            <element signature="e#907#943#0" />
+            <element signature="e#981#1016#0" />
+            <element signature="e#1054#1088#0" />
+            <element signature="e#1128#1167#0" />
+            <element signature="n#!!block;n#parseMonth#0" />
+            <element signature="e#1237#1272#0" />
+            <element signature="e#1278#1318#0" />
+            <element signature="n#!!block;n#parseDay#0" />
+            <element signature="e#1382#1415#0" />
+            <element signature="e#1421#1459#0" />
+            <element signature="n#!!block;n#countAge#0" />
+            <element signature="e#1981#2150#0" />
+            <element signature="e#2156#2294#0" />
+            <element signature="n#!!block;n#calculateDistance#0" />
+            <element signature="n#!!block;n#insertStylesheet#0" />
+            <element signature="n#!!block;n#colorInTable#0" />
+            <element signature="e#2657#2901#0" />
+            <element signature="e#2688#2746#0" />
+            <element signature="e#2773#2831#0" />
+            <element signature="e#2837#2895#0" />
+            <element signature="n#!!block;n#completeTask01#0" />
+            <element signature="e#3245#3294#0" />
+            <element signature="e#3300#3334#0" />
+            <element signature="n#!!block;n#completeTask02#0" />
+            <element signature="e#3656#3961#0" />
+            <element signature="e#3683#3720#0" />
+            <element signature="e#3743#3780#0" />
+            <element signature="e#3803#3840#0" />
+            <element signature="e#3863#3955#0" />
+            <element signature="e#3967#4005#0" />
+            <element signature="n#!!block;n#completeTask03#0" />
+            <element signature="e#4163#4549#0" />
+            <element signature="e#4579#4965#0" />
+            <element signature="e#5225#5526#0" />
+            <element signature="e#5352#5401#0" />
+            <element signature="e#5461#5520#0" />
+            <element signature="n#!!block;n#completeTask04#0" />
+            <element signature="e#5763#5893#0" />
+            <element signature="n#!!block;n#completeTask05#0" />
+            <element signature="n#!!block;n#completeTask06#0" />
+            <element signature="e#7482#7556#0" />
+            <element signature="n#!!block;n#completeTask07#0" />
+            <element signature="e#8021#8157#0" />
+            <element signature="e#8233#8420#0" />
+            <element signature="e#8522#8906#0" />
+            <element signature="e#9694#9740#0" />
+            <element signature="e#9813#10098#0" />
+            <element signature="e#10377#10417#0" />
+            <element signature="e#10708#10893#0" />
+            <element signature="e#11049#11437#0" />
+            <element signature="e#11577#11627#0" />
+            <element signature="e#11757#12141#0" />
+            <element signature="n#!!block;n#generatePage#0" />
+            <element signature="n#!!block;n#addButton#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pageGen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
